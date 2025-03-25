@@ -36,7 +36,7 @@ void main(List<String> args) async {
         if (large) return;
         if (siteName.endsWith('no_index.html')) {
           res.status(400);
-          res.send(siteName);
+          res.send('no_index.html');
           return;
         }
         res.send(siteName);

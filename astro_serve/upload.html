@@ -14,7 +14,7 @@
         <h1>Upload Your Site (ZIP File)</h1>
         <form id="upload-form">
             <div class="mb-4">
-                <label for="zipInput">Select ZIP File:</label>
+                <label for="zipInput">Select ZIP File (10 MB max):</label>
                 <input type="file" id="zipInput" accept=".zip">
                 <p id="file-count"></p>
             </div>
@@ -63,6 +63,9 @@
             const formData = new FormData();
             formData.append('file', file);
 
+
+
+
             messageText.textContent = 'Uploading...';
             uploadButton.disabled = true;
             //alert(`${window.location.protocol}//${window.location.host}/upload`);
@@ -71,21 +74,21 @@
                 body: formData,
             })
                 .then(async response => {
+                    let txt = await response.text();
                     if (response.ok) {
-                        let txt = await response.text();
                         messageText.innerHTML = `ZIP File Uploaded Successfully !<br> your site located at : <br><a href = "${txt}"> ${window.location.host}/${txt} </a>`;
                         zipInput.value = '';
                         uploadButton.disabled = true;
                     } else {
-                        messageText.textContent = 'Error uploading ZIP file.';
+                        messageText.innerHTML = `Error uploading your website: <br><a href = "${txt}"> ${window.location.host}/${txt} </a>`;
                         uploadButton.disabled = false;
-                        window.location.href = './index.html';
+                       // window.location.href = './index.html';
                     }
                 })
                 .catch(error => {
                     messageText.textContent = 'Error uploading your website: ' + error.message;
                     uploadButton.disabled = false;
-                    window.location.href = './index.html';
+                    //window.location.href = './index.html';
                 });
         });
     </script>

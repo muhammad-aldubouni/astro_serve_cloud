@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AstroServe Cloud</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/landpage-styles.css">
+    <link rel="icon" href="assets/server.png">
+</head>
+
+<body>
+    <header>
+        <div class="logo">AstroServe</div>
+        <div class="cm" id="cm">
+            <div class="bar bar1"></div>
+            <div class="bar bar2"></div>
+            <div class="bar bar3"></div>
+        </div>
+
+        <nav class="nav-menu" id="nav-menu">
+            <span class="nav-menu-close" id="nav-menu-close">&times;</span>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#usage-cost">Usage Cost</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero" class="scroll-animation">
+        <h2>Welcome to AstroServe</h2>
+        <p><b>Your one-stop solution for reliable and scalable hosting services. We provide cutting-edge technology and
+                24/7 support to ensure your website's success.</b></p>
+        <a href="upload.html"><button class="cta-button">Try For Free</button></a>
+    </section>
+
+    <section id="features" class="scroll-animation">
+        <h2>Features</h2>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+            <div class="feature-card">
+                <h3>High Performance</h3>
+                <p>Experience lightning-fast speeds with our optimized servers.</p>
+            </div>
+            <div class="feature-card">
+                <h3>24/7 Support</h3>
+                <p>Our expert support team is always here to assist you.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Scalability</h3>
+                <p>Easily scale your resources as your business grows.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Never Go Down</h3>
+                <p>We guarantee your website will be up and running.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="scroll-animation">
+        <h2>Pricing Plans</h2>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+            <div class="pricing-card">
+                <h3>Basic</h3>
+                <p class="price">$10/month</p>
+                <ul>
+                    <li>1 Website</li>
+                    <li>10GB Storage</li>
+                    <li>Unlimited Bandwidth</li>
+                    <li>24/7 Support</li>
+                </ul>
+                <a href="create_account.html"> <button class="cta-button">Get Started</button></a>
+            </div>
+            <div class="pricing-card">
+                <h3>Pro</h3>
+                <p class="price">$25/month</p>
+                <ul>
+                    <li>5 Website</li>
+                    <li>50GB Storage</li>
+                    <li>Unlimited Bandwidth</li>
+                    <li>24/7 Support</li>
+                    <li>Free Domain</li>
+                </ul>
+                <a href="create_account.html"> <button class="cta-button">Get Started</button></a>
+            </div>
+            <div class="pricing-card">
+                <h3>Business</h3>
+                <p class="price">$50/month</p>
+                <ul>
+                    <li>10 Website</li>
+                    <li>100GB Storage</li>
+                    <li>Unlimited Bandwidth</li>
+                    <li>24/7 Support</li>
+                    <li>Free Domain</li>
+                    <li>Dedicated IP</li>
+                </ul>
+               <a href="create_account.html"> <button class="cta-button">Get Started</button></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="usage-cost" class="scroll-animation">
+        <h2>Usage Cost Details</h2>
+        <p>
+            We believe in transparent pricing. Here's a breakdown of how our usage-based costs are calculated. This
+            table shows the cost per second and computation unit.
+        </p>
+        <table id="usage-table">
+            <thead>
+                <tr>
+                    <th>Resource</th>
+                    <th>Cost per Second</th>
+                    <th>Cost per Computation Unit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>CPU</td>
+                    <td>$0.00001</td>
+                    <td>$0.0001</td>
+                </tr>
+                <tr>
+                    <td>Memory (GB)</td>
+                    <td>$0.000005</td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <td>Storage (GB)</td>
+                    <td>$0.000001</td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <td>Network (GB)</td>
+                    <td>$0.00002</td>
+                    <td>N/A</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+            Please note that these are example prices. Actual pricing may vary based on your specific plan and usage.
+            Contact our sales team for a detailed quote.
+        </p>
+    </section>
+
+
+    <section id="contact" class="scroll-animation">
+        <h2>Contact Us</h2>
+        <p>Get in touch with us today for a free consultation.</p>
+        <p>Email: support@astroserve.com</p>
+        <p>Phone: +1-555-123-4567</p>
+    </section>
+
+    <section class="scroll-animation">
+        <a href="about_us.html"><button class="cta-button">More About Us →</button></a>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 AstroServe. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function revealSections() {
+            const sections = document.querySelectorAll('.scroll-animation');
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (sectionTop < windowHeight - 100) {
+                    section.classList.add('show');
+                } else {
+                    section.classList.remove('show');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealSections);
+        window.addEventListener('load', revealSections);
+
+
+        const cm = document.getElementById("cm");
+        const navMenu = document.getElementById("nav-menu");
+        const navMenuClose = document.getElementById("nav-menu-close");
+
+        cm.addEventListener("click", () => {
+            cm.classList.toggle("change");
+            navMenu.classList.toggle("active");
+        });
+
+        navMenuClose.addEventListener("click", () => {
+            cm.classList.remove("change");
+            navMenu.classList.remove("active");
+        });
+
+        document.querySelectorAll('.nav-menu a').forEach(item => {
+            item.addEventListener('click', () => {
+                cm.classList.remove("change");
+                navMenu.classList.remove("active");
+            });
+        });
+    </script>
+</body>
+
+</html>

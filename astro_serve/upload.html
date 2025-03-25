@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>publish your site free of charge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/server.png">
+    <link rel="stylesheet" href="styles/upload-styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Upload Your Site (ZIP File)</h1>
+        <form id="upload-form">
+            <div class="mb-4">
+                <label for="zipInput">Select ZIP File:</label>
+                <input type="file" id="zipInput" accept=".zip">
+                <p id="file-count"></p>
+            </div>
+            <button type="submit" disabled>Upload ZIP</button>
+        </form>
+
+        <div id="upload-message">
+            <h3>Upload Status:</h3>
+            <p id="message-text">Select a ZIP file to upload.</p>
+        </div>
+    </div>
+
+    <script>
+        const zipInput = document.getElementById('zipInput');
+        const uploadForm = document.getElementById('upload-form');
+        const fileCountDisplay = document.getElementById('file-count');
+        const uploadButton = uploadForm.querySelector('button[type="submit"]');
+        const messageText = document.getElementById('message-text');
+
+        zipInput.addEventListener('change', () => {
+            if (zipInput.files.length > 0) {
+                const file = zipInput.files[0];
+                if (file.type === 'application/zip' || file.type === 'application/x-zip-compressed') {
+                    fileCountDisplay.textContent = `Selected file: ${file.name}`;
+                    uploadButton.disabled = false;
+                } else {
+                    fileCountDisplay.textContent = 'Invalid file type. Please upload a .zip file.';
+                    uploadButton.disabled = true;
+                    zipInput.value = '';
+                }
+            } else {
+                fileCountDisplay.textContent = 'No file selected.';
+                uploadButton.disabled = true;
+            }
+        });
+
+        uploadForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const file = zipInput.files[0];
+            if (!file) {
+                alert('Please select a ZIP file to upload.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            messageText.textContent = 'Uploading...';
+            uploadButton.disabled = true;
+            //alert(`${window.location.protocol}//${window.location.host}/upload`);
+            fetch(`${window.location.protocol}//${window.location.host}/upload`, {
+                method: 'POST',
+                body: formData,
+            })
+                .then(async response => {
+                    if (response.ok) {
+                        let txt = await response.text();
+                        messageText.innerHTML = `ZIP File Uploaded Successfully !<br> your site located at : <br><a href = "${txt}"> ${window.location.host}/${txt} </a>`;
+                        zipInput.value = '';
+                        uploadButton.disabled = true;
+                    } else {
+                        messageText.textContent = 'Error uploading ZIP file.';
+                        uploadButton.disabled = false;
+                        window.location.href = './index.html';
+                    }
+                })
+                .catch(error => {
+                    messageText.textContent = 'Error uploading your website: ' + error.message;
+                    uploadButton.disabled = false;
+                    window.location.href = './index.html';
+                });
+        });
+    </script>
+</body>
+
+</html>

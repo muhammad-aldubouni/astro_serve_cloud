@@ -18,7 +18,7 @@ void main(List<String> args) async {
         Map<dynamic, dynamic>? data = await req.payload();
         data?.values.forEach((ele) {
           if (ele is MultipartUpload) {
-            if (ele.bytes.length > (1024 * 1024 * 10)) {
+            if (ele.bytes.length > (1024 * 1024 * 30)) {
               res.status(400);
               res.send("large_file_size.html");
               large = true;

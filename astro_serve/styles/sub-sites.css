@@ -11,6 +11,8 @@ body {
     justify-content: center;
 }
 
+
+
 .container {
     padding: 2rem;
     background: rgba(31, 41, 55, 0.3);
@@ -147,6 +149,7 @@ button[type="submit"]:disabled {
     line-height: 1.5rem;
     word-wrap: break-word;
 }
+
 
 @media (max-width: 768px) {
     .container {

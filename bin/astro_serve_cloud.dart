@@ -39,6 +39,12 @@ void main(List<String> args) async {
           res.send('no_index.html');
           return;
         }
+
+        if (siteName.endsWith('error.html')) {
+          res.status(400);
+          res.send('error.html');
+          return;
+        }
         res.send(siteName);
       }
     }
@@ -49,7 +55,12 @@ void main(List<String> args) async {
 }
 
 String setupSite(MultipartUpload upload, String siteName) {
-  final archive = ZipDecoder().decodeBytes(upload.bytes);
+  late final Archive archive;
+  try {
+    archive = ZipDecoder().decodeBytes(upload.bytes);
+  } catch (e) {
+    return "error.html";
+  }
   String url = "";
   for (final file in archive) {
     if (file.isFile) {

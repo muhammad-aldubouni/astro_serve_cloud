@@ -64,9 +64,9 @@ section.show {
 
 
 #hero {
-     
-    background:linear-gradient(rgba(51, 46, 85, 0.6), rgba(0, 0, 0, 0.6)),url("../assets/hero-bg.png");
-    
+
+    background: linear-gradient(rgba(51, 46, 85, 0.6), rgba(0, 0, 0, 0.6)), url("../assets/hero-bg.png");
+
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
@@ -141,7 +141,7 @@ section.show {
 }
 
 #pricing {
-    background: linear-gradient(#1f2937,#2d3748,#374151);
+    background: linear-gradient(#1f2937, #2d3748, #374151);
 }
 
 #pricing h2 {
@@ -164,8 +164,8 @@ section.show {
 .pricing-card button {
     position: absolute;
     bottom: 4%;
-    right: 24% ;
-    
+    right: 24%;
+
 }
 
 .pricing-card:hover {
@@ -204,6 +204,7 @@ section.show {
     margin-bottom: 20px;
 }
 
+
 footer {
     background-color: #1f2937;
     padding: 20px;
@@ -213,7 +214,7 @@ footer {
 
 @media (max-width: 768px) {
     header {
-        flex-direction: row; 
+        flex-direction: row;
         justify-content: space-between;
         align-items: center;
         text-align: left;
@@ -257,13 +258,15 @@ footer {
 }
 
 #usage-cost {
-    background: linear-gradient(#374151,#2d3748,#1f2937);
+    background: linear-gradient(#374151, #2d3748, #1f2937);
     padding: 40px 20px;
-   /*
+    /*
     border-radius: 8px;
     margin-top: 80px;
     */
     text-align: center;
+    align-items: center;
+    justify-items: center;
 }
 
 #usage-cost h2 {
@@ -306,6 +309,7 @@ footer {
 #usage-table tr:last-child td {
     border-bottom: none;
 }
+
 .ctx-menu {
     display: inline-block;
     cursor: pointer;
@@ -343,7 +347,7 @@ footer {
     background-color: rgba(12, 10, 10, 0.801);
     text-align: center;
     padding-top: 60px;
- 
+
 }
 
 .nav-menu.active {
@@ -376,14 +380,15 @@ footer {
 }
 
 @media (max-width: 768px) {
-    #usage-table {
-        display: block;
-        overflow-x: auto;
-    }
+
 
     #usage-table th,
     #usage-table td {
         padding: 10px;
+    }
+    #usage-table {
+        display:table-cell;
+        overflow-x: auto;
     }
 
     #usage-cost h2 {
@@ -393,4 +398,5 @@ footer {
     #usage-cost p {
         font-size: 16px;
     }
+
 }

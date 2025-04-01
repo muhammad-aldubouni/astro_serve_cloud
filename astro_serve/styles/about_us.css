@@ -233,19 +233,17 @@ footer {
 
 .scrollable-images-wrapper {
     display: flex;
-
     /* Use flexbox to arrange images horizontally */
-    align-content: center;
-    padding-left: 3rem;
+    justify-content: center;
+    justify-items: center;
+
 }
 
 .scrollable-image-container {
-    flex: 0 0 auto;
-    align-items: center;
-    align-content: center;
+
+    justify-content: center;
     text-align: center;
     width: 200px;
-    margin-right: 3rem;
 
     img {
         border-radius: 0.5rem;
@@ -254,11 +252,15 @@ footer {
     }
 }
 
-.scrollable-image-container:last-child {
-    margin-right: 0;
-    /* Remove right margin from the last image */
+
+.f-img{
+    width: 200px;
 }
 
+.title-image{
+    justify-items: center;
+    justify-content: center;
+}   
 
 @media (max-width: 768px) {
     .container {
@@ -273,14 +275,11 @@ footer {
         font-size: 1.75rem;
     }
 
-    .image-container {
-        flex: 100%;
-        margin-right: 0;
-    }
+
 
     .scrollable-images-wrapper {
-        display: block;
-        /* Use flexbox to arrange images horizontally */
- 
+        flex-direction: column;
+        
     }
 }
+

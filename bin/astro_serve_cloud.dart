@@ -50,7 +50,6 @@ void main(List<String> args) async {
     }
   });
   server.static('astro_serve', jail: false);
-  //server.static('astro_serve/sites', jail: false);
   server.listen(host: '0.0.0.0', port: 8080);
 }
 

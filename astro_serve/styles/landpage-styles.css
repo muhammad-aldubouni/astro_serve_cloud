@@ -7,18 +7,6 @@ body {
     scroll-behavior: smooth;
 }
 
-a{
-    text-decoration: none;
-    background-color: #6366f1;
-    color: #fff;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 8px;
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
 header {
     background-color: #1f2937;
     padding: 20px;
